@@ -9,7 +9,7 @@ private val parser = Json { ignoreUnknownKeys = true }
 fun parse(): List<Release> {
     println("Start parsing jsons...")
     val jsons = jsonOutputFiles.listFiles() ?: return emptyList()
-    val releases = jsons.map(::decode)
+    val releases = jsons.map(::decode).onEach { it.hash = tagsMap[it.tagName] ?: "" }
     println("Parsing json completed!")
     return releases
 }

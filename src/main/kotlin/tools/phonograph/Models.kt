@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 data class Release(
     @SerialName("tag_name")
     val tagName: String,
+    @SerialName("git_hash")
+    var hash: String = "",
     @SerialName("name")
     val name: String,
     @SerialName("prerelease")
