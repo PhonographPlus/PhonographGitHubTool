@@ -21,11 +21,7 @@ fun export(releases: List<Release>) {
 
 private fun exportMetadata(releases: List<Release>) {
 
-    if (exportedMetadataDir.exists()) {
-        println("deleting the existed...")
-        exportedMetadataDir.deleteRecursively()
-    }
-    exportedMetadataDir.mkdirs()
+    clearFiles(exportedMetadataDir)
 
     for (release in releases) {
         val target = File(exportedMetadataDir, "release_${release.tagName}.json").also { it.createNewFile() }
@@ -39,11 +35,8 @@ private fun exportMetadata(releases: List<Release>) {
 
 
 private fun exportReleaseNote(releases: List<Release>) {
-    if (exportedReleaseNoteDir.exists()) {
-        println("deleting the existed...")
-        exportedReleaseNoteDir.deleteRecursively()
-    }
-    exportedReleaseNoteDir.mkdirs()
+
+    clearFiles(exportedReleaseNoteDir)
 
     for (release in releases) {
         val target = File(exportedReleaseNoteDir, "release_${release.tagName}.release_note.md").also { it.createNewFile() }
