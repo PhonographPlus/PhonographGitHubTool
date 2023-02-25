@@ -9,6 +9,8 @@ data class Release(
     val tagName: String,
     @SerialName("git_hash")
     var hash: String = "",
+    @SerialName("id")
+    var id: Long,
     @SerialName("name")
     val name: String,
     @SerialName("prerelease")
