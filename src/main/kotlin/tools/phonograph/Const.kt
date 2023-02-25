@@ -12,3 +12,5 @@ val artifactDir = File(".", "export")
 
 val exportedMetadataDir = File(artifactDir, "metadata")
 val exportedReleaseNoteDir = File(artifactDir, "releaseNote")
+
+val previewReleaseFiles = File(artifactDir, "artifacts")
