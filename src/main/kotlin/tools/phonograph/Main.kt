@@ -6,5 +6,6 @@ fun main() {
     val jsons = parse()
     export(jsons)
 //    downloadFiles(jsons)
-//    generateDeletionScript(jsons)
+//    generateReleaseDeletionScript(jsons)
+    generateGitTagDeletionScript(jsons)
 }
