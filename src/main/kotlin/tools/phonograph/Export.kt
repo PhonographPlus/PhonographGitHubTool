@@ -11,6 +11,16 @@ private val parser = Json {
 
 fun export(releases: List<Release>) {
     println("Start Export Metadata...")
+    exportMetadata(releases)
+    println("Export Metadata Completed!")
+    println("Start Export ReleaseNote...")
+    exportReleaseNote(releases)
+    println("Export ReleaseNote Completed!")
+}
+
+
+private fun exportMetadata(releases: List<Release>) {
+
     if (exportedMetadataDir.exists()) {
         println("deleting the existed...")
         exportedMetadataDir.deleteRecursively()
@@ -25,5 +35,22 @@ fun export(releases: List<Release>) {
             it.flush()
         }
     }
-    println("Export Metadata Completed!")
+}
+
+
+private fun exportReleaseNote(releases: List<Release>) {
+    if (exportedReleaseNoteDir.exists()) {
+        println("deleting the existed...")
+        exportedReleaseNoteDir.deleteRecursively()
+    }
+    exportedReleaseNoteDir.mkdirs()
+
+    for (release in releases) {
+        val target = File(exportedReleaseNoteDir, "release_${release.tagName}.release_note.md").also { it.createNewFile() }
+        val markdown = release.body
+        target.writer().use {
+            it.write(markdown)
+            it.flush()
+        }
+    }
 }

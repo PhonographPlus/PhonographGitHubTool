@@ -11,3 +11,4 @@ val jsonOutputFiles = File(".", "jsons")
 val artifactDir = File(".", "export")
 
 val exportedMetadataDir = File(artifactDir, "metadata")
+val exportedReleaseNoteDir = File(artifactDir, "releaseNote")
