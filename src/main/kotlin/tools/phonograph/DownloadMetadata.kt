@@ -5,7 +5,7 @@ import java.io.File
 private val rt = Runtime.getRuntime()
 
 
-fun download() {
+fun downloadMetadata() {
     println("Start downloading...")
 
     val outputDir = File(".", "jsons")
