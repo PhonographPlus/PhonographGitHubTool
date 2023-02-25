@@ -10,7 +10,7 @@ fun download() {
 
     val outputDir = File(".", "jsons")
 
-    for (tag in tags) {
+    for ((tag, _) in tagsMap) {
         println("Download $tag...")
         val process =
             rt.exec("""gh api -H "Accept: application/vnd.github+json" /repos/$OWNER/$REPO_NAME/releases/tags/$tag""")
